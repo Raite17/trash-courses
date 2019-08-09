@@ -1,0 +1,29 @@
+{
+    "name": "trash-courses",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Raite17/trash-courses.git"
+    },
+    "author": "Raite <survivarian@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Raite17/trash-courses/issues"
+    },
+    "homepage": "https://github.com/Raite17/trash-courses#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "express-handlebars": "^3.1.0",
+        "uuid": "^3.3.2"
+    },
+    "devDependencies": {
+        "dotenv": "^8.0.0",
+        "nodemon": "^1.19.1"
+    }
+}
