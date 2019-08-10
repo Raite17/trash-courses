@@ -1,0 +1,27 @@
+<h1>Корзина</h1>
+
+{{#if courses.length}}
+    <table>
+        <thead>
+            <tr>
+                <th>Название курса</th>
+                <th>Количество</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each courses}}
+            <tr>
+                <td>{{title}}</td>
+                <td>{{count}}</td>
+                <td>
+                    <button class="btn btn-small btn-danger">Удалить</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <p><strong>Цена:</strong><span class="price">{{price}}</span></p>
+{{else}}
+    <h1>Корзина пуста!</h1>
+{{/if}}
