@@ -6,4 +6,5 @@ dotenv.config({ path: root('.env') });
 //Экспортируем переменные окружения
 module.exports = {
     PORT: process.env.PORT,
+    MONGO_URL: process.env.MONGO_URL
 }
