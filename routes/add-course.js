@@ -10,13 +10,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async(req, res) => {
-    const title = req.body.title;
-    const price = req.body.price;
-    const img = req.body.img;
     const course = new Course({
-        title,
-        price,
-        img
+        title: req.body.title,
+        price: req.body.price,
+        img: req.body.img,
+        userId: req.user
     });
     try {
         await course.save();
