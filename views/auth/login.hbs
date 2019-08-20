@@ -1,0 +1,50 @@
+<div class="auth">
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s6"><a class="active" href="#login">Войти</a></li>
+                <li class="tab col s6"><a href="#register">Регистрация</a></li>
+            </ul>
+        </div>
+        <div id="login" class="col s6 offset-s3">
+            <h3>Войти в личный кабинет</h3>
+            <form action="/add" method="POST">
+                <div class="input-field ">
+                    <input id="email" type="email" name="email" class="validate" required>
+                    <label for="email">Email</label>
+                    <span class="helper-text" data-error="Введите Email"></span>
+                </div>
+
+                <div class="input-field ">
+                    <input id="password" type="password" name="password" class="validate" required>
+                    <label for="password">Пароль</label>
+                    <span class="helper-text" data-error="Введите пароль"></span>
+                </div>
+                <button class="btn btn-primary" type="submit">Войти</button>
+            </form>
+        </div>
+        <div id="register" class="col s6 offset-s3">
+            <h3>Создать личный кабинет</h3>
+            <form action="/add" method="POST">
+                <div class="input-field ">
+                    <input id="remail" type="email" name="email" class="validate" required>
+                    <label for="remail">Email</label>
+                    <span class="helper-text" data-error="Введите Email"></span>
+                </div>
+
+                <div class="input-field ">
+                    <input id="rpassword" type="password" name="password" class="validate" required>
+                    <label for="rpassword">Пароль</label>
+                    <span class="helper-text" data-error="Введите пароль"></span>
+                </div>
+
+                <div class="input-field ">
+                    <input id="confirm-password" type="password" name="confirm-password" class="validate" required>
+                    <label for="confirm-password">Подтвердите пароль</label>
+                    <span class="helper-text" data-error="Введите пароль"></span>
+                </div>
+                <button class="btn btn-primary" type="submit">Регистрация</button>
+            </form>
+        </div>
+    </div>
+</div>

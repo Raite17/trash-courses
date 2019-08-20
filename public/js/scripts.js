@@ -55,3 +55,6 @@ if ($cart) {
         }
     });
 }
+
+//Materialize tabs init
+M.Tabs.init(document.querySelectorAll('.tabs'));

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
+const session = require("express-session");
 const config = require("./config");
 const routes = require("./routes");
 const User = require('./models/user');
@@ -16,6 +17,7 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("view engine", "hbs");
 app.set("views", "views");
+
 app.use(async(req, res, next) => {
     try {
         const user = await User.findById('5d583aab7615a22710f78312');
@@ -25,8 +27,15 @@ app.use(async(req, res, next) => {
         console.log(e);
     }
 });
+
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'some secret',
+    resave: false,
+    saveUninitialized: false
+}));
 
 //routes
 app.use("/", routes.homePage);
@@ -34,6 +43,7 @@ app.use("/add", routes.addCourse);
 app.use("/courses", routes.courses);
 app.use("/cart", routes.cart);
 app.use("/orders", routes.orders);
+app.use("/auth", routes.auth);
 
 //mongoose connect
 async function mongooseStart() {
