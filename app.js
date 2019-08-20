@@ -33,6 +33,7 @@ app.use("/", routes.homePage);
 app.use("/add", routes.addCourse);
 app.use("/courses", routes.courses);
 app.use("/cart", routes.cart);
+app.use("/orders", routes.orders);
 
 //mongoose connect
 async function mongooseStart() {
