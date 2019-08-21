@@ -18,6 +18,7 @@
     },
     "homepage": "https://github.com/Raite17/trash-courses#readme",
     "dependencies": {
+        "bcryptjs": "^2.4.3",
         "connect-mongodb-session": "^2.2.0",
         "express": "^4.17.1",
         "express-handlebars": "^3.1.0",

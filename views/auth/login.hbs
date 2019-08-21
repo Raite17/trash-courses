@@ -26,6 +26,13 @@
         <div id="register" class="col s6 offset-s3">
             <h3>Создать личный кабинет</h3>
             <form action="/auth/register" method="POST">
+
+                <div class="input-field ">
+                    <input id="name" type="text" name="name" class="validate" required>
+                    <label for="name">Ваше имя</label>
+                    <span class="helper-text" data-error="Введите имя"></span>
+                </div>
+
                 <div class="input-field ">
                     <input id="remail" type="email" name="email" class="validate" required>
                     <label for="remail">Email</label>
@@ -43,6 +50,8 @@
                     <label for="confirm-password">Подтвердите пароль</label>
                     <span class="helper-text" data-error="Введите пароль"></span>
                 </div>
+
+
                 <button class="btn btn-primary" type="submit">Регистрация</button>
             </form>
         </div>
