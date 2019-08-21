@@ -7,6 +7,7 @@ const MongoStore = require("connect-mongodb-session")(session);
 const config = require("./config");
 const routes = require("./routes");
 const varMiddleware = require('./middleware/variables');
+const userMiddleware = require('./middleware/user');
 
 //hbs settings
 const exphbs = require("express-handlebars");
@@ -34,6 +35,7 @@ app.use(session({
     store
 }));
 app.use(varMiddleware);
+app.use(userMiddleware);
 
 //routes
 app.use("/", routes.homePage);
