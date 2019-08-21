@@ -3,9 +3,10 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MongoStore = require("connect-mongodb-session")(session);
 const config = require("./config");
 const routes = require("./routes");
-const User = require('./models/user');
+const varMiddleware = require('./middleware/variables');
 
 //hbs settings
 const exphbs = require("express-handlebars");
@@ -13,29 +14,26 @@ const hbs = exphbs.create({
     defaultLayout: "main",
     extname: "hbs"
 });
+
+//Mongo sessions
+const store = new MongoStore({
+    collection: 'sessions',
+    uri: config.MONGO_URL,
+});
+
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("view engine", "hbs");
 app.set("views", "views");
-
-app.use(async(req, res, next) => {
-    try {
-        const user = await User.findById('5d583aab7615a22710f78312');
-        req.user = user
-        next();
-    } catch (e) {
-        console.log(e);
-    }
-});
-
-
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'some secret',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store
 }));
+app.use(varMiddleware);
 
 //routes
 app.use("/", routes.homePage);
@@ -53,15 +51,6 @@ async function mongooseStart() {
             useFindAndModify: false,
             useCreateIndex: true
         });
-        const candidate = await User.findOne();
-        if (!candidate) {
-            const user = new User({
-                email: 'raite@gmail.com',
-                name: 'Raite',
-                cart: { items: [] }
-            });
-            await user.save();
-        }
         app.listen(config.PORT, () => {
             console.log(`Сервер запущен по порту ${config.PORT}`);
         });
