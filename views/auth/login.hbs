@@ -20,6 +20,7 @@
                     <label for="password">Пароль</label>
                     <span class="helper-text" data-error="Введите пароль"></span>
                 </div>
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button class="btn btn-primary" type="submit">Войти</button>
             </form>
         </div>
@@ -50,8 +51,7 @@
                     <label for="confirm-password">Подтвердите пароль</label>
                     <span class="helper-text" data-error="Введите пароль"></span>
                 </div>
-
-
+                 <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button class="btn btn-primary" type="submit">Регистрация</button>
             </form>
         </div>
