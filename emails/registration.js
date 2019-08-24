@@ -3,7 +3,7 @@ const keys = require('../config');
 module.exports = function(email) {
     return {
         to: email,
-        from: 'trash-courses@mail.com',
+        from: keys.EMAIL_FROM,
         subject: 'Регистрация прошла успешно',
         html: `
             <h1>Добро пожаловать в наш магазин</h1>

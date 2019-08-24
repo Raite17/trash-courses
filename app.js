@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongodb-session")(session);
 const config = require("./config");
-const routes = require("./routes");
+const routes = require('./routes');
 const varMiddleware = require('./middleware/variables');
 const userMiddleware = require('./middleware/user');
 
@@ -65,10 +65,3 @@ async function mongooseStart() {
 }
 
 mongooseStart();
-
-// Catch Error handler
-app.use((req, res, next) => {
-    const err = new Error("Not Found");
-    err.status = 404;
-    next(err);
-});

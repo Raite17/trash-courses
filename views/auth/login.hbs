@@ -10,6 +10,9 @@
             {{#if loginError}}
                 <p class="alert">{{loginError}}</p>
             {{/if}}
+            {{#if success}}
+                 <p class="alert-success">{{success}}</p>
+            {{/if}}
             <h3>Войти в личный кабинет</h3>
             <form action="/auth/login" method="POST">
                 <div class="input-field ">
@@ -24,6 +27,7 @@
                     <span class="helper-text" data-error="Введите пароль"></span>
                 </div>
                 <input type="hidden" name="_csrf" value="{{csrf}}">
+                <p><a href="/auth/reset-password">Забыли пароль?</a></p>
                 <button class="btn btn-primary" type="submit">Войти</button>
             </form>
         </div>
