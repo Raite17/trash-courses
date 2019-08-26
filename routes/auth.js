@@ -32,7 +32,6 @@ router.get("/new-password/:token", async(req, res) => {
             resetToken: req.params.token,
             resetTokenExp: { $gt: Date.now() }
         })
-
         if (!user) {
             return res.redirect('/auth/login#login');
         } else {

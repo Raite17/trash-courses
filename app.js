@@ -15,7 +15,8 @@ const userMiddleware = require('./middleware/user');
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({
     defaultLayout: "main",
-    extname: "hbs"
+    extname: "hbs",
+    helpers: require('./utils/hbs-helpers')
 });
 
 //Mongo sessions
