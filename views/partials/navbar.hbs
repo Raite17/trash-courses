@@ -27,6 +27,12 @@
                          <li><a href="/cart">Корзина</a></li>
                     {{/if}}
 
+                    {{#if isProfile}}
+                         <li class="active"><a href="/profile">Личный кабинет</a></li>
+                    {{else}}
+                         <li><a href="/profile">Личный кабинет</a></li>
+                    {{/if}}
+
                     {{#if isOrder}}
                          <li class="active"><a href="/orders">Заказы</a></li>
                     {{else}}

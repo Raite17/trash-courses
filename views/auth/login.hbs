@@ -14,7 +14,7 @@
                  <p class="alert-success">{{success}}</p>
             {{/if}}
             <h3>Войти в личный кабинет</h3>
-            <form action="/auth/login" method="POST">
+            <form action="/auth/login" method="POST" >
                 <div class="input-field ">
                     <input id="email" type="email" name="email" class="validate" required>
                     <label for="email">Email</label>
@@ -36,7 +36,7 @@
                 <p class="alert">{{registerError}}</p>
             {{/if}}
             <h3>Создать личный кабинет</h3>
-            <form action="/auth/register" method="POST">
+            <form action="/auth/register" method="POST" >
                 <div class="input-field ">
                     <input id="name" type="text" name="name" class="validate" required>
                     <label for="name">Ваше имя</label>
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="input-field ">
-                    <input id="confirm-password" type="password" name="confirm-password" class="validate" required>
+                    <input id="confirm-password" type="password" name="confirm" class="validate" required>
                     <label for="confirm-password">Подтвердите пароль</label>
                     <span class="helper-text" data-error="Введите пароль"></span>
                 </div>

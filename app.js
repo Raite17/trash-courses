@@ -10,6 +10,8 @@ const config = require("./config");
 const routes = require('./routes');
 const varMiddleware = require('./middleware/variables');
 const userMiddleware = require('./middleware/user');
+const errorHandler = require('./middleware/error');
+const fileMiddleware = require('./middleware/file-upload');
 
 //hbs settings
 const exphbs = require("express-handlebars");
@@ -29,6 +31,7 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: config.SESSION_SECRET,
@@ -36,6 +39,7 @@ app.use(session({
     saveUninitialized: false,
     store
 }));
+app.use(fileMiddleware.single('avatar'));
 app.use(csrf());
 app.use(flash());
 app.use(varMiddleware);
@@ -48,6 +52,8 @@ app.use("/courses", routes.courses);
 app.use("/cart", routes.cart);
 app.use("/orders", routes.orders);
 app.use("/auth", routes.auth);
+app.use("/profile", routes.profile);
+app.use(errorHandler);
 
 //mongoose connect
 async function mongooseStart() {
